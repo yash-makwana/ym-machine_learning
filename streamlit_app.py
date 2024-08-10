@@ -41,7 +41,11 @@ with st.sidebar:
          }
   input_df = pd.DataFrame(data,index=[0])
   input_penguins = pd.concat([input_df,X_raw],axis=0)
-
+with st.expander('Input Features'):
+  st.write("**Input Selected**")
+  input_df
+  st.write("**Encoded Input**")
+  input_row
 #encode X
 encode = ['island','sex']
 df_penguins = pd.get_dummies(input_penguins, prefix=encode)
@@ -53,10 +57,8 @@ target_mapper = {'Adelie' : 0,
                 'Gentoo':2}
 def target_enocde(val):
   return target_mapper[val]
-with st.expander('Input Features'):
-  st.write("**Input Selected**")
-  input_df
-  st.write("**Encoded Input**")
-  input_row
+y = y_raw.apply(target_enocde)
+y
+
 
 

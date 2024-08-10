@@ -77,6 +77,6 @@ prediction_prob = clf.predict_proba(input_row)
 df_pred_prob = pd.DataFrame(prediction_prob)
 df_pred_prob.columns = ['Adelie','Chinstrap','Gentoo']
 
-with st.expander('Data Preparation'):
+with st.expander('Prediction'):
   st.write("**Predicted output with prob**")
   df_pred_prob

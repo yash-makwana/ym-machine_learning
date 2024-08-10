@@ -44,8 +44,7 @@ with st.sidebar:
 with st.expander('Input Features'):
   st.write("**Input Selected**")
   input_df
-  st.write("**Encoded Input**")
-  input_row
+  
 #encode X
 encode = ['island','sex']
 df_penguins = pd.get_dummies(input_penguins, prefix=encode)
@@ -58,7 +57,12 @@ target_mapper = {'Adelie' : 0,
 def target_enocde(val):
   return target_mapper[val]
 y = y_raw.apply(target_enocde)
-y
+
+with st.expander('Data Preparation'):
+  st.write("**Encoded X**")
+  input_row
+  st.write("**Encoded Y**")
+  y
 
 
 

@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import time
+from sklearn.ensemble import RandomForestClassifier
 
 st.title('👾 Machine Learning App 🤖')
 
@@ -48,6 +49,7 @@ with st.expander('Input Features'):
 #encode X
 encode = ['island','sex']
 df_penguins = pd.get_dummies(input_penguins, prefix=encode)
+X = df_penguins[1:]
 input_row = df_penguins[:1]
 
 #encode Y
@@ -64,5 +66,14 @@ with st.expander('Data Preparation'):
   st.write("**Encoded Y**")
   y
 
+#Model Selection
 
+clf = RandomForestClassifier()
+clf.fit(X,y)
+
+#Apply Model to make prediction
+prediction = clf.predict(input_row)
+prediction_prob = clf.predict_proba(input_row)
+
+prediction_prob
 

@@ -22,7 +22,7 @@ with st.expander('Data Visualization'):
 
 with st.sidebar:
     with st.echo():
-      st.write("Important Feature.")
+      st.header("Important Feature.")
 
     with st.spinner("Loading..."):
       time.sleep(5)

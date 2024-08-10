@@ -79,5 +79,29 @@ df_pred_prob = pd.DataFrame(prediction_prob)
 df_pred_prob.columns = ['Adelie','Chinstrap','Gentoo']
 
 st.subheader("**Predicted Species**")
+st.dataframe(df_pred_prob,
+             column_config={
+               'Adelie': st.column_config.ProgressColumn(
+                 'Adelie',
+                 format='%f',
+                 width='medium',
+                 min_value=0,
+                 max_value=1
+               ),
+               'Chinstrap': st.column_config.ProgressColumn(
+                 'Chinstrap',
+                 format='%f',
+                 width='medium',
+                 min_value=0,
+                 max_value=1
+               ),
+               'Gentoo': st.column_config.ProgressColumn(
+                 'Gentoo',
+                 format='%f',
+                 width='medium',
+                 min_value=0,
+                 max_value=1
+               ),
+             }, hide_index=True)
 pen_sp = np.array(['Adelie','Chinstrap','Gentoo'])
 st.success(str(pen_sp[prediction][0]))

@@ -18,3 +18,11 @@ with st.expander('Data'):
   y
 with st.expander('Data Visualization'):
   st.scatter_chart(data=df,x='bill_length_mm',y='body_mass_g',color='species')
+
+with st.sidebar:
+    with st.echo():
+        st.write("Important Feature")
+
+    with st.spinner("Loading..."):
+        time.sleep(5)
+    st.success("Done!")

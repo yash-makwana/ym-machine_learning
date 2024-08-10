@@ -23,6 +23,6 @@ with st.expander('Data Visualization'):
 with st.sidebar:
   st.header("Important Feature.")
 
-    with st.spinner("Loading..."):
-      time.sleep(5)
-    st.success("Done!")
+  with st.spinner("Loading..."):
+    time.sleep(5)
+  st.success("Done!")

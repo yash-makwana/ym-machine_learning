@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import numpy as np
 import time
 from sklearn.ensemble import RandomForestClassifier
 
@@ -77,6 +78,6 @@ prediction_prob = clf.predict_proba(input_row)
 df_pred_prob = pd.DataFrame(prediction_prob)
 df_pred_prob.columns = ['Adelie','Chinstrap','Gentoo']
 
-with st.expander('Prediction'):
-  st.write("**Predicted output with prob**")
-  df_pred_prob
+st.subheader("Predicted Species")
+pen_sp = np.array(['Adelie','Chinstrap','Gentoo'])
+st.success(str(pen_sp[prediction]))

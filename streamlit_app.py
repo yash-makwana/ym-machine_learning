@@ -26,5 +26,5 @@ with st.sidebar:
   gender = st.selectbox('Gender',('Male','Female'))
   bill_length_mm = st.slider("Bill length (mm)",32.1,59.6,43.9)
   with st.spinner("Loading..."):
-    time.sleep(5)
+    time.sleep(2)
   st.success("Done!")

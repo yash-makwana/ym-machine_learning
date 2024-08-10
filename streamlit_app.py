@@ -11,12 +11,12 @@ with st.expander('Data'):
   df
 
   st.write("**X-Feature**")
-  X = df.drop('species',axis=1)
-  X
+  X_raw = df.drop('species',axis=1)
+  X_raw
   
   st.write("**y-Target**")
-  y = df['species']
-  y
+  y_raw = df['species']
+  y_raw
 with st.expander('Data Visualization'):
   st.scatter_chart(data=df,x='bill_length_mm',y='body_mass_g',color='species')
 
@@ -40,13 +40,19 @@ with st.sidebar:
           'sex' : gender
          }
   input_df = pd.DataFrame(data,index=[0])
-  input_penguins = pd.concat([input_df,X],axis=0)
+  input_penguins = pd.concat([input_df,X_raw],axis=0)
 
-#encode
+#encode X
 encode = ['island','sex']
 df_penguins = pd.get_dummies(input_penguins, prefix=encode)
 input_row = df_penguins[:1]
 
+#encode Y
+target_mapper = {'Adelie' : 0,
+                'Chinstrap': 1,
+                'Gentoo':2}
+def target_enocde(val):
+  return target_mapper[val]
 with st.expander('Input Features'):
   st.write("**Input Selected**")
   input_df

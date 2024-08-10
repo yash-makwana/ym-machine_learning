@@ -21,8 +21,8 @@ with st.expander('Data Visualization'):
 
 with st.sidebar:
     with st.echo():
-        st.write("Important Feature")
+      st.write("Important Feature.")
 
     with st.spinner("Loading..."):
-        time.sleep(5)
+      time.sleep(5)
     st.success("Done!")

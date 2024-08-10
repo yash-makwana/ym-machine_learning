@@ -44,3 +44,8 @@ with st.sidebar:
 with st.expander('Input Features'):
   st.write("**Input Selected**")
   input_df
+
+#encode
+encode = ['island','sex']
+df_penguins = pd.get_dummies(input_penguins, prefix=encode)
+df_penguins

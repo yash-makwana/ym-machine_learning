@@ -21,8 +21,7 @@ with st.expander('Data Visualization'):
   st.scatter_chart(data=df,x='bill_length_mm',y='body_mass_g',color='species')
 
 with st.sidebar:
-    with st.echo():
-      st.header("Important Feature.")
+  st.header("Important Feature.")
 
     with st.spinner("Loading..."):
       time.sleep(5)

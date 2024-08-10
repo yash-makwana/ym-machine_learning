@@ -27,7 +27,7 @@ with st.sidebar:
   bill_depth_mm = st.slider("Bill Depth (mm)",13.1,21.5,17.2)
   flipper_length_mm = st.slider("flipper length (mm)",172.0,231.0,201.0)
   body_mass_g = st.slider("Body mass (g)",2700.0,6300.0,4207.0)
-  gender = st.selectbox('Gender',('male','Female'))
+  gender = st.selectbox('Gender',('male','female'))
   with st.spinner("Loading..."):
     time.sleep(0.5)
   st.success("Done!")
